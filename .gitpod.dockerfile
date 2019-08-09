@@ -33,6 +33,3 @@ VOLUME /src
 VOLUME /root/.cache/sccache
 
 CMD bash
-RUN npm install
-RUN npm run init
-RUN ./src/build/install-build-deps.sh --unsupported
