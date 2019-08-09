@@ -1,9 +1,10 @@
 FROM node:8-stretch
 
 USER root
+RUN apt-get install -y  sudo
 RUN sudo apt-get update -y
 RUN sudo apt-get upgrade -y
-RUN apt-get install -y \
+RUN sudo apt-get install -y \
 	libasound2:i386 \
 	libcap2:i386 \
 	libelf-dev:i386 \
@@ -187,7 +188,6 @@ RUN apt-get install -y \
 	ninja-build \
 	python-pip \
 	python-setuptools \
-  sudo
 
 RUN npm install -g node-gyp@3.3.1
 RUN pip install Jinja2==2.8.1
