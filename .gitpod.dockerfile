@@ -20,8 +20,12 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g node-gyp@3.3.1
 RUN pip install Jinja2==2.8.1
 
-COPY ./install-build-deps.sh .
-RUN chmod +x /install-build-deps.sh
+# RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+# ENV PATH="/root/.cargo/bin:${PATH}"
+# RUN cargo install sccache
+# RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
+COPY ./install-build-deps.sh /
+RUN chmod +x ./install-build-deps.sh
 RUN ./install-build-deps.sh --unsupported
 # BLB source code. Mount ./browser-laptop-bootstrap from the host to here.
 WORKDIR /src
