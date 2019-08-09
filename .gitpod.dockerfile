@@ -1,10 +1,10 @@
 FROM node:8-stretch
 
 USER root
-RUN apt-get install -y  sudo
+RUN apt-get update && apt-get install -y  sudo
 RUN sudo apt-get update -y
 RUN sudo apt-get upgrade -y
-RUN sudo 	apt-get install -y \
+RUN sudo apt-get install -y \
 	libasound2:i386 \
 	libcap2:i386 \
 	libelf-dev:i386 \
