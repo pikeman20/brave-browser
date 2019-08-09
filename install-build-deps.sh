@@ -656,7 +656,7 @@ if cmd_output="$(LANGUAGE=en LANG=C $query_cmd)"; then
     echo "No missing packages, and the packages are up to date."
   else
     echo "Installing and upgrading packages: $new_list $upgrade_list."
-    sudo apt-get install ${do_quietly-} ${new_list} ${upgrade_list}
+    sudo apt-get install -y ${do_quietly-} ${new_list} ${upgrade_list}
   fi
   echo
 else
