@@ -21,7 +21,7 @@ RUN npm install -g node-gyp@3.3.1
 RUN pip install Jinja2==2.8.1
 
 RUN ls
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cargo install sccache
 RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
