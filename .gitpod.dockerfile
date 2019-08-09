@@ -1,7 +1,6 @@
 FROM node:8-stretch
 
 USER root
-RUN apt-get update && apt-get install -y sudo
 
 RUN apt-get update && apt-get install -y \
   bison \
@@ -18,7 +17,7 @@ RUN apt-get update && apt-get install -y \
   ninja-build \
   python-pip \
   python-setuptools \
-  npm
+  sudo
 
 RUN npm install -g node-gyp@3.3.1
 RUN pip install Jinja2==2.8.1
