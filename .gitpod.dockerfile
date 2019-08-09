@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
   lsb-release \
   ninja-build \
   python-pip \
-  python-setuptools
+  python-setuptools \
+  cargo
 
 RUN npm install -g node-gyp@3.3.1
 RUN pip install Jinja2==2.8.1
