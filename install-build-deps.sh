@@ -130,7 +130,7 @@ fi
 if [ "$do_inst_lib32" = "1" ] || [ "$do_inst_nacl" = "1" ]; then
   sudo dpkg --add-architecture i386
 fi
-sudo DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes update 
+sudo apt-get update -qq && sudo apt-get dist-upgrade -qq && echo "All up to date now!" && notify-send "All up to date now!"
 
 # Populate ${apt_package_list} for package_exists() parsing.
 apt_package_list=$(build_apt_package_list)
