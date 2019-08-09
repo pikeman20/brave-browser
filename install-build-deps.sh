@@ -130,7 +130,7 @@ fi
 if [ "$do_inst_lib32" = "1" ] || [ "$do_inst_nacl" = "1" ]; then
   sudo dpkg --add-architecture i386
 fi
-sudo apt-get update
+sudo apt-get update -y
 
 # Populate ${apt_package_list} for package_exists() parsing.
 apt_package_list=$(build_apt_package_list)
@@ -644,7 +644,7 @@ echo "Finding missing packages..."
 # Intentionally leaving $packages unquoted so it's more readable.
 echo "Packages required: " $packages
 echo
-query_cmd="apt-get --just-print install $(echo $packages)"
+query_cmd="apt-get -y --just-print install $(echo $packages)"
 if cmd_output="$(LANGUAGE=en LANG=C $query_cmd)"; then
   new_list=$(echo "$cmd_output" |
     sed -e '1,/The following NEW packages will be installed:/d;s/^  //;t;d' |
