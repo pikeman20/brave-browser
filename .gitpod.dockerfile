@@ -26,9 +26,9 @@ RUN sudo curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cargo install sccache
 RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
-COPY ./install-build-deps.sh .
-RUN chmod +x ./install-build-deps.sh
-RUN ./install-build-deps.sh
+# COPY ./install-build-deps.sh .
+# RUN chmod +x ./install-build-deps.sh
+# RUN ./install-build-deps.sh
 # BLB source code. Mount ./browser-laptop-bootstrap from the host to here.
 WORKDIR /src
 VOLUME /src
